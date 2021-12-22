@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import transactionsSelectors from '../../redux/transactions/transaction-selectors';
 import { Doughnut } from 'react-chartjs-2';
 import ChartBalance from './ChartBalance';
-import { LoginImgPage } from '../IconBtn/LoginImgPage';
+import { SignupImgPage } from '../IconBtn/SignupImgPage';
 
 import styles from './Chart.module.scss';
 
@@ -46,7 +46,7 @@ export default function MyChart() {
   return (
     <div className={styles.chart}>
       <div className={styles.containerChart}>
-        {totalSpend > 0 ? <ChartBalance totalSpend /> : <LoginImgPage />}
+        {totalSpend > 0 ? <ChartBalance totalSpend /> : <SignupImgPage />}
         <div className={styles.doughnut}>
           <Doughnut
             options={{ maintainAspectRatio: false }}

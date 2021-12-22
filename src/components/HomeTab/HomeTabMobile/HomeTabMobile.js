@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import transactionOperations from '../../../redux/transactions/transaction-operations';
 import transactionsSelectors from '../../../redux/transactions/transaction-selectors';
 import authSelectors from '../../../redux/auth/auth-selectors';
-
+import { LoginImgPage } from '../../IconBtn/LoginImgPage';
 import styles from './HomeTabMobile.module.scss';
 
 export default function HomeTabMobile() {
@@ -41,6 +41,11 @@ export default function HomeTabMobile() {
 
   return (
     <>
+      {arr.length === 0 && (
+        <div className={styles.containerSvg}>
+          <LoginImgPage svg={styles.svg} />
+        </div>
+      )}
       {arr &&
         arr.map(({ _id, type, date, money, category, comment, balance }) => {
           const borderColor = type === '-' ? '#ff6596' : '#24cca7';
