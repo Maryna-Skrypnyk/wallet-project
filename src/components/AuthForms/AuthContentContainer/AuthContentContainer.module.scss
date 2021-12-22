@@ -1,0 +1,101 @@
+.SignupContainer {
+  background-color: #ffffff;
+
+  @media screen and (min-width: 768px) {
+    width: 540px;
+    border-radius: 20px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 56.25%;
+    height: 100vh;
+    min-height: 720px;
+    border-radius: 0;
+    background-color: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(50px);
+
+    // padding: 52px 85px 52px 95px;
+  }
+}
+
+.SignupFormContainer {
+  padding: 36px 20px;
+  margin: 0;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  // min-height: 616px;
+  background-color: #ffffff;
+
+  @media screen and (min-width: 480px) {
+    max-width: 480px;
+  }
+
+  @media screen and (min-width: 768px) {
+    padding: 40px 65px 60px 65px;
+    width: 540px;
+    max-width: 540px;
+    border-radius: 20px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    position: absolute;
+    top: 50%;
+    left: 20%;
+    transform: translate(-20%, -50%);
+  }
+}
+
+.LoginContainer {
+  background-color: #ffffff;
+
+  @media screen and (min-width: 768px) {
+    width: 540px;
+    border-radius: 20px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 56.25%;
+    height: 100vh;
+    // min-height: 720px;
+    min-height: 580px;
+    border-radius: 0;
+    background-color: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(50px);
+
+    // padding: 136px 85px 80px 95px;
+  }
+}
+
+.LoginFormContainer {
+  display: flex;
+  flex-direction: column;
+  // min-height: 568px;
+  margin: 0;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 110px 20px;
+  background-color: #ffffff;
+
+  @media screen and (min-width: 480px) {
+    max-width: 480px;
+  }
+
+  @media screen and (min-width: 768px) {
+    padding: 40px 65px 60px 65px;
+    width: 540px;
+    max-width: 540px;
+    // min-height: 468px;
+    border-radius: 20px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    position: absolute;
+    top: 50%;
+    left: 20%;
+    transform: translate(-20%, -50%);
+    // width: 540px;
+    padding: 40px 65px 60px 65px;
+  }
+}

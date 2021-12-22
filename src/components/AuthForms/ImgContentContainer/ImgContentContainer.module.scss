@@ -1,0 +1,20 @@
+.ImgContent {
+  display: none;
+
+  @media screen and (min-width: 768px) and (max-width: 1279px) {
+    display: flex;
+    align-items: center;
+    margin-bottom: 50px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    position: absolute;
+    top: 50%;
+    // left: 10%;
+    right: 60%;
+    transform: translate(0, -50%);
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0;
+  }
+}

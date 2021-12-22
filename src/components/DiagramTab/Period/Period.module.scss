@@ -1,0 +1,39 @@
+@import '../../../stylesheet/index.scss';
+
+.form {
+  display: flex;
+  flex-direction: column;
+
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+    height: 50px;
+  }
+}
+
+.inputWrapperMonth {
+  position: relative;
+  margin-bottom: 20px;
+  @media screen and (min-width: 768px) {
+    width: 166px;
+    margin-bottom: 0;
+    margin-right: 16px;
+  }
+}
+
+.inputWrapperYear {
+  position: relative;
+  margin: 0;
+  @media screen and (min-width: 768px) {
+    width: 166px;
+  }
+}
+
+.svgArrowDown {
+  position: absolute;
+  right: 20px;
+  top: 24px;
+  width: 18px;
+  height: 9px;
+  cursor: pointer;
+  pointer-events: none;
+}

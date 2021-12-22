@@ -1,0 +1,36 @@
+.sectionHeader {
+  background: #ffffff;
+}
+
+.Header {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  background-color: #fff;
+  z-index: 10;
+
+  @media screen and (min-width: 768px) {
+    position: relative;
+  }
+}
+
+.HeaderContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+
+  @media screen and (min-width: 768px) {
+    margin-right: auto;
+    margin-left: auto;
+    padding: 20px 30px;
+    width: 768px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    padding: 20px 70px;
+
+    width: 1280px;
+  }
+}
