@@ -126,6 +126,10 @@ const logOut = () => async dispatch => {
   } catch (error) {
     dispatch(logoutError(error));
 
+    if (error.response.statusText === 'Unauthorized') {
+      window.location.reload();
+    }
+
     if (error.response.status === 401) {
       return toast.error('Something went wrong! Please reload the page!');
     }

@@ -64,6 +64,10 @@ const addTransactions = transaction => async dispatch => {
     dispatch(addTransactionsSuccess(data.data.result));
   } catch (error) {
     dispatch(addTransactionsError(error.message));
+
+    if (error.response.statusText === 'Unauthorized') {
+      window.location.reload();
+    }
   }
 };
 
@@ -127,6 +131,10 @@ const getStatistics = params => async dispatch => {
 //     dispatch(editTransactionsSuccess(data.data));
 //   } catch (error) {
 //     dispatch(editTransactionsError(error.message));
+
+// if (error.response.statusText === 'Unauthorized') {
+//   window.location.reload();
+// }
 //   }
 // };
 
@@ -137,6 +145,10 @@ const getStatistics = params => async dispatch => {
 //     dispatch(deleteTransactionsSuccess(transactionId));
 //   } catch (error) {
 //     dispatch(deleteTransactionsError(error.message));
+
+// if (error.response.statusText === 'Unauthorized') {
+//   window.location.reload();
+// }
 //   }
 // };
 
