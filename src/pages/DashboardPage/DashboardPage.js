@@ -78,7 +78,7 @@ export default function DashboardPage() {
                   matches.otherSize ? (
                     <>
                       <Sidebar />
-                      <div>
+                      <div className={styles.containerPages}>
                         <Routes>
                           <Route index element={<HomeTab />} />
                           <Route path="home" element={<HomeTab />} />
