@@ -5,6 +5,7 @@ import authSelectors from '../../../redux/auth/auth-selectors';
 import styles from './ChartBalance.module.scss';
 
 export default function ChartBalance() {
+  const getBalance = useSelector(authSelectors.getBalance);
   const transactions = useSelector(authSelectors.getTransactionsAuth);
   const lastBalance = useSelector(authSelectors.getTransactionAuthBalance);
   const arrBalances = useSelector(authSelectors.getArrTransactionAuthBalance);
@@ -25,7 +26,9 @@ export default function ChartBalance() {
             (transactions.balance >= 0 || transactions.balance < 0) &&
             formatSum(transactions.balance)}
           {(lastBalance >= 0 || lastBalance < 0) && formatSum(lastBalance)}
-          {!transactions.balance && arrBalances.length === 0 && formatSum(0)}
+          {!transactions.balance &&
+            arrBalances.length === 0 &&
+            formatSum(getBalance)}
         </p>
       </div>
     </>

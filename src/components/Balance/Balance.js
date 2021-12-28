@@ -6,6 +6,7 @@ import authSelectors from '../../redux/auth/auth-selectors';
 import styles from './Balance.module.scss';
 
 const Balance = () => {
+  const getBalance = useSelector(authSelectors.getBalance);
   const transactions = useSelector(authSelectors.getTransactionsAuth);
   const lastBalance = useSelector(authSelectors.getTransactionAuthBalance);
   const arrBalances = useSelector(authSelectors.getArrTransactionAuthBalance);
@@ -27,7 +28,9 @@ const Balance = () => {
             (transactions.balance >= 0 || transactions.balance < 0) &&
             formatSum(transactions.balance)}
           {(lastBalance >= 0 || lastBalance < 0) && formatSum(lastBalance)}
-          {!transactions.balance && arrBalances.length === 0 && formatSum(0)}
+          {!transactions.balance &&
+            arrBalances.length === 0 &&
+            formatSum(getBalance)}
         </p>
       </div>
     </>
