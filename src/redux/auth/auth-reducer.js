@@ -19,7 +19,7 @@ import {
 
 import {
   addTransactionsSuccess,
-  getTransactionsSuccess,
+  // getTransactionsSuccess,
   // editTransactionsSuccess,
   // deleteTransactionsSuccess,
 } from '../transactions/transaction-actions';
@@ -27,26 +27,30 @@ import {
 const user = createReducer(
   { name: null, email: null },
   {
-    [registerSuccess]: (_, { payload }) => payload,
+    // [registerSuccess]: (_, { payload }) => payload,
     [loginSuccess]: (_, { payload }) => payload,
+    [loginError]: () => ({ name: null, email: null }),
     [logoutSuccess]: () => ({ name: null, email: null }),
     [fetchCurrentUserSuccess]: (_, { payload }) => payload.user,
     [getUserByGoogleAuthSuccess]: (_, { payload }) => payload.user,
+    [getUserByGoogleAuthError]: () => ({ name: null, email: null }),
+    [fetchCurrentUserError]: () => ({ name: null, email: null }),
   },
 );
 
 const token = createReducer(null, {
   // [registerSuccess]: (_, { payload }) => payload.token,
   [loginSuccess]: (_, { payload }) => payload.token,
+  [loginError]: () => null,
   [logoutSuccess]: () => null,
   [getUserByGoogleAuthSuccess]: (_, { payload }) => payload.token,
   [getUserByGoogleAuthError]: () => null,
   // [fetchCurrentUserSuccess]: (_, { payload }) => payload.token,
-  // [fetchCurrentUserError]: () => null,
+  [fetchCurrentUserError]: () => null,
 });
 
 const isLoggedIn = createReducer(false, {
-  [registerSuccess]: () => false,
+  // [registerSuccess]: () => false,
   [registerError]: () => false,
   [loginSuccess]: () => true,
   [loginError]: () => false,
@@ -97,18 +101,20 @@ const error = createReducer(null, {
   [getUserByGoogleAuthError]: (_, { payload }) => payload,
 });
 
-// const balance = createReducer(0, {
-//   [loginSuccess]: (_, { payload }) => payload.data,
-//   [addTransactionsSuccess]: (_, { payload }) => payload.data,
-//   [fetchCurrentUserSuccess]: (_, { payload }) => payload,
-
-// });
-
-const transactions = createReducer([], {
-  [addTransactionsSuccess]: (_, { payload }) => payload,
-  [getTransactionsSuccess]: (_, { payload }) => payload,
-  [fetchCurrentUserSuccess]: (_, { payload }) => payload,
+const balance = createReducer(0, {
+  [loginSuccess]: (_, { payload }) => payload.balance,
+  [getUserByGoogleAuthSuccess]: (_, { payload }) => payload.balance,
+  [addTransactionsSuccess]: (_, { payload }) => payload.balance,
+  // [editTransactionsSuccess]: (_, { payload }) => payload.newBalance,
+  // [deleteTransactionsSuccess]: (_, { payload }) => payload.newBalance,
+  // [fetchCurrentUserSuccess]: (_, { payload }) => payload,
 });
+
+// const transactions = createReducer([], {
+//   [addTransactionsSuccess]: (_, { payload }) => payload,
+//   [getTransactionsSuccess]: (_, { payload }) => payload,
+//   [fetchCurrentUserSuccess]: (_, { payload }) => payload,
+// });
 
 export default combineReducers({
   user,
@@ -117,6 +123,6 @@ export default combineReducers({
   isRegistered,
   isLoading,
   error,
-  // balance,
-  transactions,
+  balance,
+  // transactions,
 });

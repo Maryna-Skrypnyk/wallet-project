@@ -14,44 +14,38 @@ const getToken = state => state.auth.token;
 
 const getIsRegistered = state => state.auth.isRegistered;
 
-// const getCategories = state => state.auth.user;
+const getBalance = state => state.auth.balance;
 
-const getTransactionsUser = state => state.auth.user.transactions;
+// const getTransactionsUser = state => state.auth.user.transactions;
+// const getTransactionsAuth = state => state.auth.transactions;
 
-const getTransactionsAuth = state => state.auth.transactions;
-const getBalance = state => state.auth.user.balance;
+const formatSum = sum => {
+  return new Intl.NumberFormat('ua-UA', {
+    maximumFractionDigits: 2,
+    minimumFractionDigits: 2,
+  }).format(sum);
+};
 
-// const formatSum = sum => {
-//   if (!String(sum).includes('.')) {
-//     const num = Number(sum);
-//     return num.toFixed(2);
-//   }
-// };
+const getFormatBalance = createSelector([getBalance], balance => {
+  return formatSum(balance);
+});
 
-// const getTransactionAuthBalance = state => {
+// const getTransactionAuthBalance = createSelector(
+//   [getTransactionsAuth],
+//   transactions => {
+//     const arr = Array.from(transactions);
+//     const arrBalances = arr.map(({ balance }) => balance);
+//     const transactionBalance = arrBalances[arrBalances.length - 1];
+//     return transactionBalance;
+//   },
+// );
+
+// const getArrTransactionAuthBalance = state => {
 //   const arrTransactionsAuth = getTransactionsAuth(state);
 //   const arr = Array.from(arrTransactionsAuth);
 //   const arrBalances = arr.map(({ balance }) => balance);
-//   const transactionBalance = arrBalances[arrBalances.length - 1];
-//   return transactionBalance;
+//   return arrBalances;
 // };
-
-const getTransactionAuthBalance = createSelector(
-  [getTransactionsAuth],
-  transactions => {
-    const arr = Array.from(transactions);
-    const arrBalances = arr.map(({ balance }) => balance);
-    const transactionBalance = arrBalances[arrBalances.length - 1];
-    return transactionBalance;
-  },
-);
-
-const getArrTransactionAuthBalance = state => {
-  const arrTransactionsAuth = getTransactionsAuth(state);
-  const arr = Array.from(arrTransactionsAuth);
-  const arrBalances = arr.map(({ balance }) => balance);
-  return arrBalances;
-};
 
 const authSelectors = {
   getIsLoggedIn,
@@ -61,12 +55,12 @@ const authSelectors = {
   getError,
   getToken,
   getIsRegistered,
-  getTransactionsUser,
-  getTransactionsAuth,
-  getTransactionAuthBalance,
-  getArrTransactionAuthBalance,
+  // getTransactionsUser,
+  // getTransactionsAuth,
+  // getTransactionAuthBalance,
+  // getArrTransactionAuthBalance,
   getBalance,
+  getFormatBalance,
   // addTransactionsUser,
-  // getCategories,
 };
 export default authSelectors;
