@@ -7,15 +7,15 @@ import styles from './Period.module.scss';
 
 const allMonths = [
   { name: 'All months', id: '0' },
-  { name: 'January', id: '01' },
-  { name: 'February', id: '02' },
-  { name: 'March', id: '03' },
-  { name: 'April', id: '04' },
-  { name: 'May', id: '05' },
-  { name: 'June', id: '06' },
-  { name: 'July', id: '07' },
-  { name: 'August', id: '08' },
-  { name: 'September', id: '09' },
+  { name: 'January', id: '1' },
+  { name: 'February', id: '2' },
+  { name: 'March', id: '3' },
+  { name: 'April', id: '4' },
+  { name: 'May', id: '5' },
+  { name: 'June', id: '6' },
+  { name: 'July', id: '7' },
+  { name: 'August', id: '8' },
+  { name: 'September', id: '9' },
   { name: 'October', id: '10' },
   { name: 'November', id: '11' },
   { name: 'December', id: '12' },
@@ -93,7 +93,8 @@ const Period = ({ setRequestedMonth, setRequestedYear, years }) => {
             name="SelectedMonth"
             onChange={validateMonth}
             options={sortMonth(allMonths)}
-            placeholder={monthState}
+            // placeholder={monthState}
+            placeholder="Month"
             styles={customStyles}
           />
           <ArrowDown svg={styles.svgArrowDown} />
@@ -105,7 +106,8 @@ const Period = ({ setRequestedMonth, setRequestedYear, years }) => {
             name="SelectedYear"
             onChange={validateYears}
             options={sortYears(allYears())}
-            placeholder={yearState}
+            // placeholder={yearState}
+            placeholder="Year"
             styles={customStyles}
           />
           <ArrowDown svg={styles.svgArrowDown} />
